@@ -1,11 +1,9 @@
--- eliminar tablas
 DROP TABLE IF EXISTS CitasServicios;
 DROP TABLE IF EXISTS Citas;
 DROP TABLE IF EXISTS Clientes;
 DROP TABLE IF EXISTS Peluqueros;
 DROP TABLE IF EXISTS Servicios;
 
---tablas
 CREATE OR REPLACE TABLE Servicios(
     id INT PRIMARY AUTO_INCREMENT,
     descripción VARCHAR(100) NOT NULL,
@@ -33,7 +31,7 @@ CREATE TABLE Citas(
     duración INT NOT NULL,
     fechaPetición DATETIME NOT NULL,
     fechaConfirmación DATETIME,
-    estado ENUM("Confirmado", "Por confirmar"), --o VARCHAR(50) NOT NULL CHECK estado IN ("Confirmado", "Por confirmar")
+    estado ENUM("Confirmado", "Por confirmar"),
     asistencia BOOL DEFAULT TRUE,
     idCliente INT NOT NULL,
     idPeluquero INT NOT NULL,
