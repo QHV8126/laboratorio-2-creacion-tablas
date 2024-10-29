@@ -6,8 +6,8 @@ DROP TABLE IF EXISTS Servicios;
 
 CREATE OR REPLACE TABLE Servicios(
     id INT PRIMARY AUTO_INCREMENT,
-    descripción VARCHAR(100) NOT NULL,
-    duración INT NOT NULL,
+    descripcion VARCHAR(100) NOT NULL,
+    duracion INT NOT NULL,
     precio FLOAT NOT NULL
 );
 
@@ -15,7 +15,7 @@ CREATE TABLE Peluqueros(
     id INT PRIMARY AUTO_INCREMENT,
     mail VARCHAR(100) NOT NULL,
     contraseña VARCHAR(100) NOT NULL UNIQUE,
-    CHECK(CHAR_LENGHT(contraseña) => 8)
+    CHECK(CHAR_LENGHT(contraseña) >= 8)
 );
 
 CREATE TABLE Clientes(
@@ -28,9 +28,9 @@ CREATE TABLE Clientes(
 CREATE TABLE Citas(
     id INT PRIMARY AUTO_INCREMENT,
     fechaHora DATETIME NOT NULL,
-    duración INT NOT NULL,
-    fechaPetición DATETIME NOT NULL,
-    fechaConfirmación DATETIME,
+    duracion INT NOT NULL,
+    fechaPeticion DATETIME NOT NULL,
+    fechaConfirmacion DATETIME,
     estado ENUM("Confirmado", "Por confirmar"),
     asistencia BOOL DEFAULT TRUE,
     idCliente INT NOT NULL,
